@@ -12,41 +12,66 @@
       <div class="d-flex align-right">
         <v-tabs align-with-title background-color="#1a180e" dark>
           <v-tab>Home</v-tab>
-          <v-tab>Experience</v-tab>
+          <v-tab>Projects</v-tab>
+          <v-tab>Skills</v-tab>
+          <v-tab>About</v-tab>
           <v-tab>Contacts</v-tab>
+          <template>
+            <v-btn icon @click="goToGitHub">
+              <v-icon title="View on Github">mdi-github</v-icon>
+            </v-btn>
+          </template>
         </v-tabs>
+
       </div>
     </v-app-bar>
 
     <v-main>
-      <HelloWorld />
+      <MainScreen />
     </v-main>
 
-    <v-footer color="primary lighten-9" padless>
-      <v-row justify="center" no-gutters>
-        <v-btn v-for="link in links" :key="link" color="white" text rounded class="my-2">
-          {{ link }}
+    <v-footer class="d-flex flex-column" color="primary lighten-9" padless>
+      <div class="bg-teal d-flex w-100 align-center px-4">
+        <strong>Get connected with me on social networks!</strong>
+
+        <v-spacer></v-spacer>
+
+        <v-btn v-for="(icon, index) in icons" :key="index" icon @click="redirectToSocialMedia(icon)">
+          <v-icon>{{ icon }}</v-icon>
         </v-btn>
-        <v-col class="primary lighten-2 py-4 text-center white--text" cols="12">
-          {{ new Date().getFullYear() }} — <strong>Developed by Mussa</strong>
-        </v-col>
-      </v-row>
+      </div>
+
+      <div class="px-4 py-2 bg-black text-center w-100">
+        {{ new Date().getFullYear() }} — <strong>Musa Mustapha</strong>
+      </div>
     </v-footer>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import MainScreen from './components/MainScreen';
+
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    MainScreen,
   },
 
   data: () => ({
-    //
+    icons: [
+      'mdi-whatsapp',
+      'mdi-facebook',
+      'mdi-twitter',
+      'mdi-linkedin',
+      'mdi-instagram',
+    ],
+    methods: {
+      goToGitHub() {
+        window.open('https://github.com/dembele360/portfolio', '_blank');
+      }
+    },
   }),
 };
 </script>
