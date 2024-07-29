@@ -1,6 +1,7 @@
 <template>
   <v-app>
-    <v-app-bar app color="#1a180e" dark :style="{ height: '10%', margin: '0 auto' }">
+    <v-app-bar app color="#1a180e" dark :style="{ height: '56px', margin: '0 auto' }"
+      class="d-flex-column xs:d-flex xs:flex-column">
       <div class="d-flex align-center">
         <v-img alt="Vuetify Logo" class="shrink mr-2" contain
           src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png" transition="scale-transition" width="40" />
@@ -26,7 +27,7 @@
       </div>
     </v-app-bar>
 
-    <v-main>
+    <v-main style="width: 100%;">
       <MainScreen />
     </v-main>
 
